@@ -1,244 +1,284 @@
-local v0=loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))();
-local v1=loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))();
-local v2=loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))();
+print(" Başlatılıyor...");
 
-local v3=v0:CreateWindow({
-    Title="Falkor " .. v0.Version,
-    SubTitle="xqrazy tarafından",
-    TabWidth=160,
-    Size=UDim2.fromOffset(580,460),
-    Acrylic=false,
-    Theme="Dark",
-    MinimizeKey=Enum.KeyCode.LeftControl
-});
-
-local v4={
-    Main=v3:AddTab({Title="Ana Menü",Icon="globe"}),
-    Settings=v3:AddTab({Title="Ayarlar",Icon="settings"})
-};
-
-local v5=v0.Options;
-
-do 
-    local v6=0;
-    while true do
-        if (2==v6) then 
-            v4.Main:AddToggle("Test3",{
-                Title="[ALTIN] Otomatik Yükselt [Hepsi]",
-                Default=false,
-                Callback=function(v7) 
-                    autoUpgrade2=v7;
-                end
-            });
-            
-            task.spawn(function() 
-                while task.wait() do 
-                    if autoUpgrade2 then 
-                        pcall(function() 
-                            local v14=0;
-                            local v15;
-                            local v16;
-                            while true do 
-                                if (v14==1) then 
-                                    for v28,v29 in ipairs(v15) do 
-                                        local v30=0;
-                                        local v31;
-                                        while true do 
-                                            if (v30==0) then 
-                                                v31=0;
-                                                while true do 
-                                                    if (v31==0) then 
-                                                        v16:InvokeServer(v29);
-                                                        task.wait(0.1);
-                                                        break;
-                                                    end 
-                                                end 
-                                                break;
-                                            end 
-                                        end 
-                                    end 
-                                    break;
-                                end 
-                                if (v14==0) then 
-                                    v15={"server tier","packager","golden DDOS protector","Supercharge CPUs","network redundancy","Super Advertising","upgrade server cpu speed","Transform Code Into Machine Code","Robot Staff","fiber cables"};
-                                    v16=game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GUpgrade");
-                                    v14=1;
-                                end 
-                            end 
-                        end);
-                    end 
-                end 
-            end);
-            v6=3;
-        end 
-        
-        if (0==v6) then 
-            v4.Main:AddToggle("Test",{
-                Title="Otomatik Ping",
-                Default=false,
-                Callback=function(v8) 
-                    sexo=v8;
-                end
-            });
-            
-            spawn(function() 
-                while task.wait() do 
-                    if sexo then 
-                        local v12=0;
-                        local v13;
-                        while true do 
-                            if (v12==0) then 
-                                v13=0;
-                                while true do 
-                                    if (v13==0) then 
-                                        pcall(function() 
-                                            fireclickdetector(workspace.TakenPlots[game.Players.LocalPlayer.Name].Button.Hit.Use);
-                                        end);
-                                        task.wait(0.1);
-                                        break;
-                                    end 
-                                end 
-                                break;
-                            end 
-                        end 
-                    end 
-                end 
-            end);
-            v6=1;
-        end 
-        
-        if (v6==4) then 
-            v4.Main:AddToggle("Test5",{
-                Title="[Yükseliş] Otomatik Yükselt [Hepsi]",
-                Default=false,
-                Callback=function(v9) 
-                    autoUpgrade4=v9;
-                end
-            });
-            
-            task.spawn(function() 
-                while task.wait(0.5) do 
-                    if autoUpgrade4 then 
-                        pcall(function() 
-                            local v17=0;
-                            local v18;
-                            local v19;
-                            while true do 
-                                if (v17==0) then 
-                                    v18={"Web Servers","Improve Server Language","Email Servers","Move Servers To Antartica","Satelites","Database Servers","Application Servers","Game Servers","Space Drones"};
-                                    v19=game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("AUpgrade");
-                                    v17=1;
-                                end 
-                                if (v17==1) then 
-                                    for v32,v33 in ipairs(v18) do 
-                                        local v34=0;
-                                        while true do 
-                                            if (v34==0) then 
-                                                v19:InvokeServer(v33);
-                                                task.wait(0.1);
-                                                break;
-                                            end 
-                                        end 
-                                    end 
-                                    break;
-                                end 
-                            end 
-                        end);
-                    end 
-                end 
-            end);
+-- Clean up previous instance if it exists
+if getgenv().MonkeyHub then 
+    local v11 = 0;
+    while true do 
+        if (v11 == 1) then 
+            getgenv().MonkeyHub = nil;
             break;
         end 
-        
-        if (v6==1) then 
-            v4.Main:AddToggle("Test2",{
-                Title="[Para] Otomatik Yükselt [Hepsi]",
-                Default=false,
-                Callback=function(v10) 
-                    autoUpgrade=v10;
-                end
-            });
-            
-            task.spawn(function() 
-                while task.wait(0.5) do 
-                    if autoUpgrade then 
-                        pcall(function() 
-                            local v20=0;
-                            local v21;
-                            local v22;
-                            while true do 
-                                if (v20==1) then 
-                                    for v35,v36 in ipairs(v21) do 
-                                        local v37=0;
-                                        while true do 
-                                            if (v37==0) then 
-                                                v22:InvokeServer(v36);
-                                                task.wait(0.1);
-                                                break;
-                                            end 
-                                        end 
-                                    end 
-                                    break;
-                                end 
-                                if (v20==0) then 
-                                    v21={"better servers","Upgrade CPU","firewall","Upgrade Storage","Optimize Code","internet speed","autoclicker","gold chance","Purchase Advertisements","Improve Load Balancing","encryptor","DDOS protector","cloud hosting","upgrade hardware","trees","Rebirth"};
-                                    v22=game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("UpgradeMax");
-                                    v20=1;
-                                end 
-                            end 
-                        end);
-                    end 
-                end 
-            end);
-            v6=2;
-        end 
-        
-        if (v6==3) then 
-            v4.Main:AddToggle("Test4",{
-                Title="[Yeniden Doğuş] Otomatik Yükselt [Hepsi]",
-                Default=false,
-                Callback=function(v11) 
-                    autoUpgrade3=v11;
-                end
-            });
-            
-            task.spawn(function() 
-                while task.wait(0.5) do 
-                    if autoUpgrade3 then 
-                        pcall(function() 
-                            local v23={"server cooling","Proxy Servers","increase server storage","bug detector","Improve Encryption","anti virus software","Improve Management Tools","Improve Compression","Employee Training","Ascend"};
-                            local v24=game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("RUpgrade");
-                            for v25,v26 in ipairs(v23) do 
-                                local v27=0;
-                                while true do 
-                                    if (v27==0) then 
-                                        v24:InvokeServer(v26);
-                                        task.wait(0.1);
-                                        break;
-                                    end 
-                                end 
-                            end 
-                        end);
-                    end 
-                end 
-            end);
-            v6=4;
+        if (v11 == 0) then 
+            if getgenv().MonkeyHub.ExpLoop then 
+                task.cancel(getgenv().MonkeyHub.ExpLoop);
+            end 
+            if getgenv().MonkeyHub.MoneyLoop then 
+                task.cancel(getgenv().MonkeyHub.MoneyLoop);
+            end 
+            v11 = 1;
         end 
     end 
 end 
 
-v1:SetLibrary(v0);
-v2:SetLibrary(v0);
-v1:IgnoreThemeSettings();
-v1:SetIgnoreIndexes({});
-v2:SetFolder("FluentScriptHub");
-v1:SetFolder("FluentScriptHub/specific-game");
-v2:BuildInterfaceSection(v4.Settings);
-v1:BuildConfigSection(v4.Settings);
-v3:SelectTab(1);
-v0:Notify({
-    Title="xqrazy",
-    Content="Script başarıyla yüklendi.",
-    Duration=8
+-- Initialize MonkeyHub
+getgenv().MonkeyHub = {};
+local v1 = getgenv().MonkeyHub;
+local v2 = game:GetService("ReplicatedStorage");
+local v3 = v2:FindFirstChild("remotes") and v2.remotes:FindFirstChild("KillBonusExp");
+local v4 = v2:FindFirstChild("remotes") and v2.remotes:FindFirstChild("HighspeedFin");
+
+-- Check if required remotes exist
+if not v3 then 
+    warn("Yeniden dene");
+end 
+if not v4 then 
+    warn("Yeniden dene");
+end 
+if (not v3 and not v4) then 
+    warn("Yeniden dene");
+    return;
+end 
+
+print("Başarılı! Yükleniyor...");
+
+-- Configuration settings
+local v5 = {
+    ExpEnabled = false,
+    ExpDelay = 0.1,
+    MoneyEnabled = false,
+    MoneyDelay = 0.1
+};
+
+getgenv().SecureMode = true;
+
+-- Load Rayfield UI library
+local v7 = loadstring(game:HttpGet("https://sirius.menu/rayfield"))();
+print("Yüklendi! Oluşturuluyor...");
+
+-- Create main window
+local v8 = v7:CreateWindow({
+    Name = "xqrazy",
+    LoadingTitle = "West Chigaco",
+    LoadingSubtitle = "Otomatik kasılma",
+    ConfigurationSaving = {Enabled = false},
+    Discord = {Enabled = false},
+    KeySystem = false
 });
-v1:LoadAutoloadConfig();
+
+print("Pencere Oluşturuldu! Sekmeler ekleniyor...");
+
+-- Create main tab
+local v9 = v8:CreateTab("Otomatik kasma", 4483362458);
+print("Otomatik kasma Yüklendi! Kontroller ekleniyor...");
+
+-- EXP Farming Controls
+if v3 then 
+    local v12 = 0;
+    local v13, v14, v15;
+    
+    while true do 
+        if (v12 == 0) then 
+            -- Create EXP toggle
+            v13 = v9:CreateToggle({
+                Name = "XP kasılma",
+                CurrentValue = false,
+                Flag = "MonkeyExpToggle",
+                Callback = function(v34)
+                    v5.ExpEnabled = v34;
+                    print("EXP kasma", (v34 and "Açıldı") or "Kapandı");
+                    
+                    if v34 then 
+                        v1.ExpLoop = task.spawn(function()
+                            while v5.ExpEnabled do 
+                                local v50, v51 = pcall(function()
+                                    v3:FireServer();
+                                end);
+                                
+                                if not v50 then 
+                                    warn("Xp kasma hata", v51);
+                                end
+                                
+                                task.wait(v5.ExpDelay);
+                            end 
+                        end);
+                    elseif v1.ExpLoop then 
+                        task.cancel(v1.ExpLoop);
+                        v1.ExpLoop = nil;
+                    end 
+                end
+            });
+            
+            -- Create EXP speed slider
+            v14 = v9:CreateSlider({
+                Name = "Xp kasma hızı",
+                Range = {0.01, 2},
+                Increment = 0.01,
+                Suffix = "s",
+                CurrentValue = 0.1,
+                Flag = "MonkeyExpDelay",
+                Callback = function(v36)
+                    v5.ExpDelay = v36;
+                    print("EXP kasılma hızı:", v36, "saniye");
+                end
+            });
+            
+            v12 = 1;
+        end 
+        
+        if (v12 == 1) then 
+            -- Create EXP fire once button
+            v15 = v9:CreateButton({
+                Name = "Önce buna tıkla (XP)",
+                Callback = function()
+                    local v38, v39 = pcall(function()
+                        v3:FireServer();
+                    end);
+                    
+                    if v38 then 
+                        print("XP başarılı");
+                        v7:Notify({
+                            Title = "xqrazy XP",
+                            Content = "Başarılı XP kasma çalışıyor",
+                            Duration = 2,
+                            Image = 4483362458,
+                            Actions = {
+                                Ignore = {
+                                    Name = "xqrazy",
+                                    Callback = function()
+                                        print("XP mesaj hata");
+                                    end
+                                }
+                            }
+                        });
+                    else 
+                        warn("XP hata", v39);
+                        v7:Notify({
+                            Title = "HATA",
+                            Content = "EXP remote failed: " .. tostring(v39),
+                            Duration = 3,
+                            Image = 4483362458,
+                            Actions = {
+                                Ignore = {
+                                    Name = "Düzelt",
+                                    Callback = function()
+                                        print("Xp hata");
+                                    end
+                                }
+                            }
+                        });
+                    end 
+                end
+            });
+            
+            v1.ExpToggle = v13;
+            v12 = 2;
+        end 
+        
+        if (v12 == 2) then 
+            v1.ExpSlider = v14;
+            v1.ExpButton = v15;
+            break;
+        end 
+    end 
+end 
+
+-- Money Farming Controls
+if v4 then 
+    print("Kontroller eklendi...");
+    
+    -- Create Money toggle
+    local v16 = v9:CreateToggle({
+        Name = "Para kasma (+100 para)",
+        CurrentValue = false,
+        Flag = "MonkeyMoneyToggle",
+        Callback = function(v22)
+            v5.MoneyEnabled = v22;
+            print("Para kasma", (v22 and "Açıldı") or "Kapandı");
+            
+            if v22 then 
+                v1.MoneyLoop = task.spawn(function()
+                    while v5.MoneyEnabled do 
+                        local v45, v46 = pcall(function()
+                            v4:FireServer();
+                        end);
+                        
+                        if not v45 then 
+                            warn("Para kasma HATA", v46);
+                        end
+                        
+                        task.wait(v5.MoneyDelay);
+                    end 
+                end);
+            elseif v1.MoneyLoop then 
+                task.cancel(v1.MoneyLoop);
+                v1.MoneyLoop = nil;
+            end 
+        end
+    });
+    
+    -- Create Money speed slider
+    local v17 = v9:CreateSlider({
+        Name = "Para kasma hızı",
+        Range = {0.01, 2},
+        Increment = 0.01,
+        Suffix = "s",
+        CurrentValue = 0.1,
+        Flag = "MonkeyMoneyDelay",
+        Callback = function(v24)
+            v5.MoneyDelay = v24;
+            print("Para kasma hızı:", v24, "saniye");
+        end
+    });
+    
+    -- Create Money fire once button
+    local v18 = v9:CreateButton({
+        Name = "Önce bunu çalıştır (Para) (+100 para)",
+        Callback = function()
+            local v26, v27 = pcall(function()
+                v4:FireServer();
+            end);
+            
+            if v26 then 
+                print("Başarılı");
+                v7:Notify({
+                    Title = "xqrazy",
+                    Content = "Başarıyla 100 para alındı",
+                    Duration = 2,
+                    Image = 4483362458,
+                    Actions = {
+                        Ignore = {
+                            Name = "xqrazy",
+                            Callback = function()
+                                print("Para hata");
+                            end
+                        }
+                    }
+                });
+            else 
+                warn("Para hata", v27);
+                v7:Notify({
+                    Title = "HATAr",
+                    Content = "Para hata " .. tostring(v27),
+                    Duration = 3,
+                    Image = 4483362458,
+                    Actions = {
+                        Ignore = {
+                            Name = "Tekrar dene",
+                            Callback = function()
+                                print("Para hata");
+                            end
+                        }
+                    }
+                });
+            end 
+        end
+    });
+    
+    v1.MoneyToggle = v16;
+    v1.MoneySlider = v17;loadstring(game:HttpGet("https://raw.githubusercontent.com/gabrielfnavarro/RBLXS/refs/heads/main/server_simulator.lua"))()
+    v1.MoneyButton = v18;
+end 
+
+print("Herşey başarılı");
+v1.Window = v8;
+print("xqrazy iyi oyunlar diler :)");
